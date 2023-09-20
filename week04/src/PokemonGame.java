@@ -1,14 +1,52 @@
+import java.util.Scanner;
 
 public class PokemonGame {
     public static void main(String[] args) {
-        NoFly noFly = new NoFly();
-        Pikachu pikachu = new Pikachu(noFly);    // Association, Has-a (Aggregation)
-        //pikachu.setFlyable(new NoFly());  // 프로그램 실행 중 동적으로 하늘을 나는 방식을 변경
-        pikachu.performFly();
-        /*
-        피카츄이(가) Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Flyable.fly()" because "this.flyable" is null
-	at Pokemon.performFly(Pokemon.java:18)
-	at PokemonGame.main(PokemonGame.java:5)
-         */
+        System.out.println("포켓몬 게임을 시작합니다\n야생 포켓몬이 나타났습니다");
+     //   System.out.println(Math.random()); // 0.0 <= x < 1.0
+     //   System.out.println((int)(Math.random()*6)+1); // 1 <= x <= 6
+        int enemyPick = (int)(Math.random()*3);
+        if(enemyPick == 0){
+            NoFly noFly = new NoFly();
+            Pikachu pikachu = new Pikachu(noFly);
+        }else if(enemyPick == 1){
+            NoFly noFly = new NoFly();
+            Squirtle squirtle = new Squirtle(noFly);
+        }else if(enemyPick == 2){
+            Wings wings = new Wings();
+            Charizard charizard = new Charizard(wings);
+        }else{
+            System.out.println("여기는 영원히 실행 안됩니다");
+        }
+
+
+        // 플레이어 포켓몬스터 선택
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("포켓몬을 고르세요.\n1) 피카츄 2) 꼬부기 3) 리자몽 : ");
+        int pokemonPick = scanner.nextInt();
+        if(pokemonPick == 1){
+            Pikachu p1 = new Pikachu(new NoFly());
+        } else if(pokemonPick == 2){
+            Squirtle p2 = new Squirtle(new NoFly());
+        } else if(pokemonPick == 3){
+            Charizard p3 = new Charizard(new Wings());
+        } else {
+            System.out.println("정상적인 값이 아닙니다.");
+        }
+
+        while(true){
+            System.out.print("\t1) 전투 2) 도망(하남자) 3) 종료 : ");
+            int menu = scanner.nextInt();
+            if(menu == 1) {
+
+            }else if(menu == 2){
+
+            }else{
+                System.out.println("게임을 종료합니다.");
+                break;
+            }
+
+        }
+        }
     }
-}
+
