@@ -1,4 +1,3 @@
-package version15;
 
 public interface Flyable {
 //    public Flyable(){

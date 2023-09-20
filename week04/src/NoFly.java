@@ -1,4 +1,3 @@
-package version15;
 
 public class NoFly implements Flyable{
     @Override
