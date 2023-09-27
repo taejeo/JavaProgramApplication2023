@@ -7,6 +7,8 @@ public abstract class Pokemon {
 
     protected int attackRate;
 
+    protected  int defenceRate;
+
     private static int pokemonCount = 0;  // 클래스(정적) 변수
 
     Flyable flyable;  // 연관 관계
@@ -85,8 +87,12 @@ public abstract class Pokemon {
 
     public void attack(Pokemon targetPokemon, String skill){
         System.out.println(this.name + "이(가) " + targetPokemon.name + "에게 " + skill + "공격 시전!");
-        targetPokemon.hp = targetPokemon.hp - this.attackRate;
-        System.out.println(targetPokemon.name + "의 체력은 " + targetPokemon.hp + "입니다");
+        targetPokemon.hp = targetPokemon.hp - (this.attackRate - targetPokemon.defenceRate);
+        if(targetPokemon.hp <= 0) {
+            System.out.println(targetPokemon.name + "은(는) 사망!" );
+        } else {
+            System.out.println(targetPokemon.name + "의 체력은 " + targetPokemon.hp + "입니다");
+        }
         //targetPokemon.hp
     }
 }
