@@ -10,6 +10,8 @@ public class Squirtle extends Pokemon{
         this.defenceRate = 65;
         this.setHp(44);
         this.name = "꼬부기";
+        this.skills = new String[]{"몸통박치기", "오줌갈기기", "물대포"};
+        this.specialAttackRate = new int[]{42, 50, 60};
         this.flyable = f; // Association, has-a (Aggregation)
     }
 
